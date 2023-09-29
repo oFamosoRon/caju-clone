@@ -1,4 +1,4 @@
-package com.ofamosoron.caju_clone.ui.composables
+package com.ofamosoron.caju_clone.ui.composables.main_screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

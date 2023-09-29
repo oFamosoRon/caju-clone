@@ -1,60 +1,32 @@
-package com.ofamosoron.caju_clone.ui.composables
+package com.ofamosoron.caju_clone.ui.composables.main_screen
 
-import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ofamosoron.caju_clone.MainViewModel
 import com.ofamosoron.caju_clone.R
-import com.ofamosoron.caju_clone.model.BudgetCard
 import com.ofamosoron.caju_clone.ui.theme.AccentBlue
-import com.ofamosoron.caju_clone.ui.theme.Caju_cloneTheme
 import com.ofamosoron.caju_clone.ui.theme.PlaceHolderGrey
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun CCScaffold(budgetCardsList: List<BudgetCard>) {
-    Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        topBar = { CCTopBar() }
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-        ) {
-            CCScaffoldContent(budgetCardsList)
-        }
-    }
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -108,39 +80,4 @@ fun CCTopBar() {
         },
         modifier = Modifier.padding(8.dp)
     )
-}
-
-@Composable
-fun CCScaffoldContent(budgetCardsList: List<BudgetCard>) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 24.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.Start
-    ) {
-        Text(
-            text = "BENEFÍCIOS",
-            style = MaterialTheme.typography.labelSmall,
-            fontWeight = FontWeight.Bold
-        )
-        Spacer(modifier = Modifier.padding(8.dp))
-        LazyRow(
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            items(budgetCardsList) { budgetCard ->
-                CCBudgetCard(budgetCard)
-            }
-        }
-    }
-}
-
-@Preview
-@Composable
-fun MainScaffoldPreview() {
-    Caju_cloneTheme {
-        val viewModel = MainViewModel()
-        val state = viewModel.state.collectAsState()
-        CCScaffold(state.value.budgetCards)
-    }
 }
