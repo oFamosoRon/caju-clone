@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,10 +33,14 @@ fun CCScaffoldContent(budgetCardsList: List<BudgetCard>) {
         )
         Spacer(modifier = Modifier.padding(8.dp))
         LazyRow(
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            items(budgetCardsList) { budgetCard ->
-                CCBudgetCard(budgetCard)
+            itemsIndexed(budgetCardsList) { index, budgetCard ->
+                if (index == budgetCardsList.size - 1) {
+                    BudgetSettingsButton()
+                } else {
+                    CCBudgetCard(budgetCard)
+                }
             }
         }
     }
