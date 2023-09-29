@@ -15,7 +15,7 @@ import com.ofamosoron.caju_clone.ui.theme.Caju_cloneTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CCScaffold(budgetCardsList: List<BudgetCard>) {
+fun CCScaffold(budgetCardsList: List<BudgetCard>, totalBudget: String) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = { CCTopBar() }
@@ -25,7 +25,7 @@ fun CCScaffold(budgetCardsList: List<BudgetCard>) {
                 .fillMaxSize()
                 .padding(paddingValues)
         ) {
-            CCScaffoldContent(budgetCardsList)
+            CCBudgetCardsList(budgetCardsList, totalBudget)
         }
     }
 }
@@ -36,6 +36,6 @@ fun MainScaffoldPreview() {
     Caju_cloneTheme {
         val viewModel = MainViewModel()
         val state = viewModel.state.collectAsState()
-        CCScaffold(state.value.budgetCards)
+        CCScaffold(state.value.budgetCards, state.value.totalBudget)
     }
 }

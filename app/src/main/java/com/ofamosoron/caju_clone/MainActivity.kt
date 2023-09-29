@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
             Caju_cloneTheme {
                 val viewModel: MainViewModel by viewModels()
                 val state = viewModel.state.collectAsState()
-                CCScaffold(state.value.budgetCards)
+                CCScaffold(state.value.budgetCards, state.value.totalBudget)
             }
         }
     }
