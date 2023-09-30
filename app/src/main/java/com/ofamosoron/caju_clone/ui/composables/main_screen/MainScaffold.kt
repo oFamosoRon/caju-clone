@@ -39,6 +39,7 @@ fun CCScaffold(
                 flexibleBudget = flexibleBudget,
                 nextDepositDate = nextDepositDate
             )
+            CCActions()
         }
     }
 }
