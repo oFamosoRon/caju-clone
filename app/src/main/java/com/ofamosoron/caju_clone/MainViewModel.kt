@@ -66,11 +66,20 @@ class MainViewModel : ViewModel() {
 
     )
 
-    private val _state = MutableStateFlow(State(totalBudget = "100,00", budgetCards = budgetCards))
+    private val _state = MutableStateFlow(
+        State(
+            totalBudget = "100,00",
+            budgetCards = budgetCards,
+            flexibleBudget = "50",
+            nextAvailableDeposit = "06/10/1994"
+        )
+    )
     val state = _state.asStateFlow()
 
     data class State(
         val totalBudget: String = "",
+        val flexibleBudget: String = "",
+        val nextAvailableDeposit: String = "",
         val budgetCards: List<BudgetCard> = listOf()
     )
 }

@@ -15,7 +15,12 @@ class MainActivity : ComponentActivity() {
             Caju_cloneTheme {
                 val viewModel: MainViewModel by viewModels()
                 val state = viewModel.state.collectAsState()
-                CCScaffold(state.value.budgetCards, state.value.totalBudget)
+                CCScaffold(
+                    budgetCardsList = state.value.budgetCards,
+                    totalBudget = state.value.totalBudget,
+                    flexibleBudget = state.value.flexibleBudget,
+                    nextDepositDate = state.value.nextAvailableDeposit
+                )
             }
         }
     }

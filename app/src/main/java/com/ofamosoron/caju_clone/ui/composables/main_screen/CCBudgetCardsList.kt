@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.ofamosoron.caju_clone.model.BudgetCard
 
 @Composable
-fun CCBudgetCardsList(budgetCardsList: List<BudgetCard>, totalBudget: String) {
+fun CCBudgetCardsList(budgetCardsList: List<BudgetCard>) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -42,23 +42,6 @@ fun CCBudgetCardsList(budgetCardsList: List<BudgetCard>, totalBudget: String) {
                     CCBudgetCard(budgetCard)
                 }
             }
-        }
-        Spacer(modifier = Modifier.padding(8.dp))
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(
-                text = "Total em benefícios",
-                style = MaterialTheme.typography.labelMedium,
-                fontWeight = FontWeight.Bold
-            )
-            Text(
-                text = "R$ $totalBudget",
-                style = MaterialTheme.typography.labelMedium,
-                fontWeight = FontWeight.Bold
-            )
         }
     }
 }
