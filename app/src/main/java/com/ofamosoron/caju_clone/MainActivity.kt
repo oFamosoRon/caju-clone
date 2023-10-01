@@ -19,7 +19,8 @@ class MainActivity : ComponentActivity() {
                     budgetCardsList = state.value.budgetCards,
                     totalBudget = state.value.totalBudget,
                     flexibleBudget = state.value.flexibleBudget,
-                    nextDepositDate = state.value.nextAvailableDeposit
+                    nextDepositDate = state.value.nextAvailableDeposit,
+                    paymentHistory = state.value.paymentHistory
                 )
             }
         }

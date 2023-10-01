@@ -18,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ofamosoron.caju_clone.model.BudgetCard
+import com.ofamosoron.caju_clone.model.EventUiAttr
 import com.ofamosoron.caju_clone.ui.theme.Caju_cloneTheme
 import com.ofamosoron.caju_clone.ui.theme.HomeOfficeCardColor
 
@@ -29,10 +30,10 @@ fun CCBudgetCard(
         modifier = Modifier
             .width(120.dp)
             .clip(RoundedCornerShape(16.dp))
-            .background(budgetCard.color)
+            .background(budgetCard.eventUiAttr.color)
             .padding(16.dp)
     ) {
-        Icon(budgetCard.icon, contentDescription = "Home office icon")
+        Icon(budgetCard.eventUiAttr.icon, contentDescription = "Home office icon")
         Spacer(modifier = Modifier.padding(10.dp))
         Text(text = "R$", style = MaterialTheme.typography.labelSmall)
         Text(text = budgetCard.budgetValue.uppercase(), style = MaterialTheme.typography.labelLarge)
@@ -47,9 +48,11 @@ fun CCBudgetCardPreview() {
     Caju_cloneTheme {
         CCBudgetCard(
             BudgetCard(
-                color = HomeOfficeCardColor,
                 label = "Home office",
-                icon = Icons.Outlined.Home,
+                eventUiAttr = EventUiAttr(
+                    color = HomeOfficeCardColor,
+                    icon = Icons.Outlined.Home,
+                ),
                 budgetValue = "10,00"
             )
         )
