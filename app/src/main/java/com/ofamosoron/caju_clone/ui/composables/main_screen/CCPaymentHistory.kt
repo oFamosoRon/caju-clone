@@ -2,6 +2,7 @@ package com.ofamosoron.caju_clone.ui.composables.main_screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -13,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.ofamosoron.caju_clone.model.PaymentEvent
+import com.ofamosoron.caju_clone.ui.theme.AccentBlue
 
 @Composable
 fun CCPaymentHistory(paymentHistory: List<PaymentEvent>) {
@@ -37,6 +39,19 @@ fun CCPaymentHistory(paymentHistory: List<PaymentEvent>) {
                 eventUiAttr = paymentHistory[i].eventUiAttr
             )
             Spacer(modifier = Modifier.padding(8.dp))
+        }
+        Spacer(modifier = Modifier.padding(16.dp))
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = "ver extrato geral".uppercase(),
+                style = MaterialTheme.typography.labelMedium,
+                fontWeight = FontWeight.Bold,
+                color = AccentBlue
+            )
         }
     }
 }
