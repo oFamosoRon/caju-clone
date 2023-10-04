@@ -29,7 +29,8 @@ fun CCScaffold(
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        topBar = { CCTopBar() }
+        topBar = { CCTopBar() },
+        bottomBar = { CCBottomBar() }
     ) { paddingValues ->
         Column(
             modifier = Modifier
